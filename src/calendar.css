@@ -1,0 +1,78 @@
+body{
+    font: 16px/1.5 Microsoft YaHei,tahoma,arial,Hiragino Sans GB,\\5b8b\4f53,sans-serif;
+    color: black;
+}
+a{
+    text-decoration: none;
+    color: #9d9d9d;
+}
+div,ul{
+    margin: 0;
+    padding: 0;
+}
+#calendar{
+    margin:0 auto;
+    border:1px solid black;
+    width: 350px;
+    border-radius: 10px;
+}
+#nav{
+    margin-top: 9px;
+    border-bottom: black;
+    padding: 5px;
+    margin-bottom: 3px;
+    overflow: hidden;
+}
+#turn-left{
+    width: 50px;
+    float: left;
+    margin-left: 8px;
+}
+#turn-left a{
+    font-size:x-large;
+    padding-right: 100px;
+}
+#year{
+    float: left;
+}
+#year p{
+    font-size:medium;
+    font-weight: bolder;
+    vertical-align:center;
+}
+#month{
+    margin-left: 20px;
+    width: 190px;
+    float: left;
+}
+#month p{
+    font-size: x-large;
+    margin: 0 auto;
+    font-weight: lighter;
+}
+
+#turn-right{
+    float: left;
+}
+#turn-right a{
+    font-size:x-large;
+}
+#week{
+    height: 50px;
+}
+
+#date-table th{
+    padding: 14px;
+    font-weight: normal;
+}
+#today{
+    background: #e0e0e0;
+    border-radius: 30px;
+}
+th:hover{
+    background: #f0f0f0;
+    border-radius: 13px;
+}
+a:hover{
+    color:black ;
+}
