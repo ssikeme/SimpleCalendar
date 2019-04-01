@@ -83,6 +83,10 @@ function showCalendar(year,month) {
 
 window.onload=function () {
     showCalendar(cur_y,cur_m);
+    var year_input=document.getElementById("year-input");
+    year_input.value=cur_y;
+    var month_input=document.getElementById("month-input");
+    month_input.value =cur_m;
 }
 var prev=document.getElementById("turn-left");
 prev.onclick=function (e) {
@@ -111,12 +115,8 @@ turn_to_today.onclick=function (e) {
     showCalendar(cur_y,cur_m);
 }
 function  getVal() {
-    var name=document.getElementById("dates").value;
-    if(name.length==0){
-        showCalendar(cur_y,cur_m);
-        alert("请输入合法的日期");
-    }
-    else{
-        var date=name.split("-");
-        showCalendar(date[0],date[1]);}
+    var year=document.getElementById("year-input").value;
+    var month=document.getElementById("month-input").value;
+    showCalendar(year,month);
+
 }

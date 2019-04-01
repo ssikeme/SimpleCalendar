@@ -24,8 +24,16 @@ div,ul{
     overflow: hidden;
 }
 #form{
+    float: left;
     padding-left: 10px;
     padding-top: 10px;
+}
+
+#form b{
+    font-size: initial;
+    font-family: 宋体;
+    color: #1E90FF;
+    font-weight: normal;
 }
 
 #button {
@@ -54,7 +62,7 @@ div,ul{
     color: #1E90FF;
 }
 #month{
-    width: 210px;
+
     float: left;
 }
 #month p{
@@ -64,7 +72,7 @@ div,ul{
 }
 #turn-to-today{
     float: left;
-    width: 50px;
+
 }
 #turn-to-today a{
     margin-left: 35px;
