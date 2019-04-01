@@ -1,5 +1,5 @@
 body{
-    font: 16px/1.5 Microsoft YaHei,tahoma,arial,Hiragino Sans GB,\\5b8b\4f53,sans-serif;
+    font-family: "Microsoft YaHei";
     color: black;
 }
 a{
@@ -12,7 +12,7 @@ div,ul{
 }
 #calendar{
     margin:0 auto;
-    border:1px solid black;
+    border:1px solid #1E90FF;
     width: 350px;
     border-radius: 10px;
 }
@@ -23,56 +23,97 @@ div,ul{
     margin-bottom: 3px;
     overflow: hidden;
 }
-#turn-left{
-    width: 50px;
-    float: left;
-    margin-left: 8px;
+#form{
+    padding-left: 10px;
+    padding-top: 10px;
 }
-#turn-left a{
-    font-size:x-large;
-    padding-right: 100px;
+
+#button {
+    height: 25px;
+    border-width: 0px;
+    border-radius: 3px;
+    background: #1E90FF;
+    cursor: pointer;
+    outline: none;
+    font-family: Microsoft YaHei;
+    color: white;
+    font-size: 15px;
+}
+#button:hover{
+    background:#87cefa;
+    color: white;
 }
 #year{
     float: left;
+    margin-left: 10px;
+
 }
-#year p{
-    font-size:medium;
-    font-weight: bolder;
-    vertical-align:center;
+#year p {
+    font-size: large;
+    font-family: 宋体;
+    color: #1E90FF;
 }
 #month{
-    margin-left: 20px;
-    width: 190px;
+    width: 210px;
     float: left;
 }
 #month p{
-    font-size: x-large;
-    margin: 0 auto;
-    font-weight: lighter;
+    font-size: large;
+    font-family: 宋体;
+    color: #1E90FF;
+}
+#turn-to-today{
+    float: left;
+    width: 50px;
+}
+#turn-to-today a{
+    margin-left: 35px;
+    font-size: large;
+    background: white;
+    color: #1E90FF;
+    border:1px solid #1E90FF;
+}
+#turn-to-today a:hover{
+    background: lightskyblue;
+    color: white;
+}
+#turn-left{
+    float: left;
+    margin-right: 6px;
 }
 
 #turn-right{
     float: left;
 }
-#turn-right a{
+#turn-left a,#turn-right a{
     font-size:x-large;
+}
+#turn-left a:hover,#turn-right a:hover{
+    color: black;
 }
 #week{
     height: 50px;
 }
-
+.week:hover{
+    background: lightskyblue;
+    color: white;
+}
+.weekend{
+    color: #1E90FF;
+}
 #date-table th{
     padding: 14px;
     font-weight: normal;
 }
 #today{
-    background: #e0e0e0;
+    background: #1E90FF;
     border-radius: 30px;
+    color: white;
 }
 th:hover{
     background: #f0f0f0;
     border-radius: 13px;
 }
-a:hover{
-    color:black ;
-}
+
+
+

@@ -8,7 +8,7 @@ var tmp_y=cur_y,tmp_m=cur_m,tmp_d=cur_d;
 
 var leap_month=[31,29,31,30,31,30,31,31,30,31,30,31];//初始化月份天数（闰年，平年），月份名称
 var common_month=[31,28,31,30,31,30,31,31,30,31,30,31];
-var month_string=["January","February","March","April","May","June","July","August","September","October","November","December"];
+var month_string=["一月","二月","三月","四月","五月","六月","七月","八月","九月","十月","十一月","十二月"];
 
 var yearholder=document.getElementById("year");
 var monthholder=document.getElementById("month");
@@ -35,67 +35,52 @@ function showCalendar(year,month) {
     var totalDays=getDaysCount(year,month);
     var firstday=getStartDay(year,month);//第一天星期几
     var str="";
-    var year_s=("<p>"+year+"</p>");
+    var year_s=("<p>"+year+"年"+"</p>");
     var month_s=("<p>"+month_string[month-1]+"</p>");
     str+=("<tr>" +
-        " <th>日</th>" +
-        "<th>一</th>" +
-        "<th>二</th>" +
-        "<th>三</th>" +
-        "<th>四</th>" +
-        "<th>五</th>" +
-        "<th>六</th>" +
+        " <th class=\"week weekend\">日</th>" +
+        "<th class=\"week\">一</th>" +
+        "<th class=\"week\">二</th>" +
+        "<th class=\"week\">三</th>" +
+        "<th class=\"week\">四</th>" +
+        "<th class=\"week\">五</th>" +
+        "<th class=\"week weekend\">六</th>" +
         " </tr>");
-    str+="<tr>";
+
     var cur=1;
-    for(var i=0;i<7;i++){
-        if(i<firstday)str+="<th> </th>";
-        else if(cur==cur_d&&month==cur_m&&year==cur_y){str+=("<th id=\"today\">"+cur+"</th>");cur++;}
-        else {str+=("<th>"+cur+"</th>");
-              cur++;}
+    for(var k=0;k<6;k++){
+        str+="<tr>";
+        for(var i=0;i<7&&cur<=totalDays;i++){
+            if(k==0){
+                if(i<firstday)str+="<th> </th>";
+                else if(cur==cur_d&&month==cur_m&&year==cur_y){
+                    str+=("<th id=\"today\">"+cur+"</th>");cur++;
+                }
+                else {
+                    str+=("<th>"+cur+"</th>");
+                    cur++;
+                }
+            }
+            else{
+                if(cur==cur_d&&month==cur_m&&year==cur_y){
+                    str+=("<th id=\"today\">"+cur+"</th>");
+                    cur++;
+                }
+                else{
+                    str+=("<th>"+cur+"</th>");
+                    cur++;
+                }
+            }
+        }
+        str+="</tr>";
     }
-    str+="</tr>";
-    str+="<tr>";
-    for(var i=0;i<7;i++){
-   if(cur==cur_d&&month==cur_m&&year==cur_y){str+=("<th id=\"today\">"+cur+"</th>");cur++;}
-      else{  str+=("<th>"+cur+"</th>");
-            cur++;}
-    }
-    str+="</tr>";
-    str+="<tr>";
-    for(var i=0;i<7;i++){
-        if(cur==cur_d&&month==cur_m&&year==cur_y){str+=("<th id=\"today\">"+cur+"</th>");cur++;}
-        else{  str+=("<th>"+cur+"</th>");
-            cur++;}
-    }
-    str+="</tr>";
-    str+="<tr>";
-    for(var i=0;i<7&&cur<=totalDays;i++){
-        if(cur==cur_d&&month==cur_m&&year==cur_y){str+=("<th id=\"today\">"+cur+"</th>");cur++;}
-        else{  str+=("<th>"+cur+"</th>");
-            cur++;}
-    }
-    str+="</tr>";
-    str+="<tr>";
-    for(var i=0;i<7&&cur<=totalDays;i++){
-        if(i==cur_d&&month==cur_m&&year==cur_y){str+=("<th id=\"today\">"+cur+"</th>");cur++;}
-        else{  str+=("<th>"+cur+"</th>");
-            cur++;}
-    }
-    str+="</tr>";
-    str+="<tr>";
-    for(var i=0;i<7&&cur<=totalDays;i++){
-        if(cur==cur_d&&month==cur_m&&year==cur_y){str+=("<th id=\"today\">"+cur+"</th>");cur++;}
-        else{  str+=("<th>"+cur+"</th>");
-            cur++;}
-    }
-    str+="</tr>";
 
     yearholder.innerHTML=year_s;
     monthholder.innerHTML=month_s;
     dateholder.innerHTML=str;
 
 }
+
 window.onload=function () {
     showCalendar(cur_y,cur_m);
 }
@@ -110,8 +95,6 @@ prev.onclick=function (e) {
     showCalendar(tmp_y,tmp_m);
 }
 
-
-
 var next=document.getElementById("turn-right");
 next.onclick=function (e) {
     e.preventDefault();
@@ -121,4 +104,19 @@ next.onclick=function (e) {
     }
     else tmp_m++;
     showCalendar(tmp_y,tmp_m);
+}
+var turn_to_today=document.getElementById("turn-to-today");
+turn_to_today.onclick=function (e) {
+    e.preventDefault();
+    showCalendar(cur_y,cur_m);
+}
+function  getVal() {
+    var name=document.getElementById("dates").value;
+    if(name.length==0){
+        showCalendar(cur_y,cur_m);
+        alert("请输入合法的日期");
+    }
+    else{
+        var date=name.split("-");
+        showCalendar(date[0],date[1]);}
 }
