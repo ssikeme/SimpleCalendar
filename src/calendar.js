@@ -75,19 +75,21 @@ function showCalendar(year,month) {
         str+="</tr>";
     }
 
-    yearholder.innerHTML=year_s;
-    monthholder.innerHTML=month_s;
+
     dateholder.innerHTML=str;
 
 }
 
 window.onload=function () {
+    yearSelectHeadCont.innerHTML=cur_y+"年";
+    monthSelectHeadCont.innerHTML=cur_m+"月";
+    for(var i=0,y=cur_y;i<len1;i++){
+        yearoptionitem[i].innerHTML=y+"年";
+        y++;
+    }
     showCalendar(cur_y,cur_m);
-    var year_input=document.getElementById("year-input");
-    year_input.value=cur_y;
-    var month_input=document.getElementById("month-input");
-    month_input.value =cur_m;
 }
+
 var prev=document.getElementById("turn-left");
 prev.onclick=function (e) {
     e.preventDefault();
@@ -115,8 +117,52 @@ turn_to_today.onclick=function (e) {
     showCalendar(cur_y,cur_m);
 }
 function  getVal() {
-    var year=document.getElementById("year-input").value;
-    var month=document.getElementById("month-input").value;
+    var year=document.getElementById("year-select-cont").innerHTML;
+    var month=document.getElementById("month-select-cont").innerHTML;
+    year=year.substr(0,year.length-1);
+    month=month.substr(0,month.length-1);
     showCalendar(year,month);
 
+}
+
+var yearSelectHead=document.getElementsByClassName('select-head')[0];
+var monthSelectHead=document.getElementsByClassName('select-head')[1];
+
+var yearSelectHeadCont=document.getElementById('year-select-cont');
+var monthSelectHeadCont=document.getElementById('month-select-cont');
+
+var yearOption=document.getElementById('year-option');
+var monthOption=document.getElementById('month-option');
+
+var yearoptionitem=document.getElementsByClassName('year-option-item');
+var monthoptionitem=document.getElementsByClassName('month-option-item');
+
+yearSelectHead.onclick=function () {
+    yearOption.style.visibility='initial';
+    document.getElementById('year-select-icon').innerHTML='▼';
+}
+monthSelectHead.onclick=function () {
+    monthOption.style.visibility='initial';
+    document.getElementById('month-select-icon').innerHTML='▼';
+}
+
+var len1=yearoptionitem.length,len2=monthoptionitem.length;
+
+
+
+for(var i=0;i<len1;i++){
+    yearoptionitem[i].index=i;
+    yearoptionitem[i].onclick=function () {
+        yearSelectHeadCont.innerHTML=yearoptionitem[this.index].innerHTML;
+        yearOption.style.visibility='hidden';
+        document.getElementById('year-select-icon').innerHTML='▶';
+    }
+}
+for(var i=0;i<len2;i++){
+    monthoptionitem[i].index=i;
+    monthoptionitem[i].onclick=function () {
+        monthSelectHeadCont.innerHTML=monthoptionitem[this.index].innerHTML;
+        monthOption.style.visibility='hidden';
+        document.getElementById('month-select-icon').innerHTML='▶';
+    }
 }

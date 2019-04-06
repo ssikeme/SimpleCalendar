@@ -6,9 +6,10 @@ a{
     text-decoration: none;
     color: #9d9d9d;
 }
-div,ul{
+div,ul,li{
     margin: 0;
     padding: 0;
+    list-style: none;
 }
 #calendar{
     margin:0 auto;
@@ -23,18 +24,78 @@ div,ul{
     margin-bottom: 3px;
     overflow: hidden;
 }
+#year{
+    width: 70px;
+    float: left;
+    margin-top: 8px;
+}
+#month{
+    width: 50px;
+    float: left;
+    margin-top: 8px;
+}
+
+#year-div,#month-div{
+    float: left;
+}
+.select-head{
+    overflow: hidden;
+    line-height: 17px;
+    height: 20px;
+}
+.select-head:hover{
+    cursor: pointer;
+}
+#month-select-icon,#year-select-icon{
+    float: right;
+    padding-left: 5px;
+    margin-left: 0;
+    font-family: 宋体;
+    color: #1E90FF;
+    font-weight: normal;
+}
+#month-select-cont,#year-select-cont{
+    float: right;
+    padding-left: 0;
+    padding-right: 0;
+    margin-right: 0;
+    font-family: 宋体;
+    color: #1E90FF;
+    font-weight: normal;
+}
+#year-option,#month-option{
+    width: 60px;
+    text-align: center;
+    color: #1E90FF;
+    background: white;
+    line-height: 17px;
+    border: 1px #1E90FF solid;
+    visibility: hidden;
+    position: absolute;
+    margin-left: 1px;
+    font-family: 宋体;
+    font-weight: normal;
+}
+#month-option{
+    width: 40px;
+}
+.month-option-item:hover,.year-option-item:hover{
+   background: lightskyblue;
+    color: white;
+}
+
 #form{
     float: left;
     padding-left: 10px;
     padding-top: 10px;
 }
-
 #form b{
     font-size: initial;
     font-family: 宋体;
     color: #1E90FF;
     font-weight: normal;
 }
+
 
 #button {
     height: 25px;
@@ -46,6 +107,9 @@ div,ul{
     font-family: Microsoft YaHei;
     color: white;
     font-size: 15px;
+    float: left;
+    margin-left: 15px;
+    margin-top: 5px;
 }
 #button:hover{
     background:#87cefa;
@@ -62,7 +126,6 @@ div,ul{
     color: #1E90FF;
 }
 #month{
-
     float: left;
 }
 #month p{
@@ -71,11 +134,12 @@ div,ul{
     color: #1E90FF;
 }
 #turn-to-today{
-    float: left;
+    float: right;
+    padding-right: 10px;
+    margin-left: 10px;
 
 }
 #turn-to-today a{
-    margin-left: 35px;
     font-size: large;
     background: white;
     color: #1E90FF;
@@ -86,18 +150,20 @@ div,ul{
     color: white;
 }
 #turn-left{
-    float: left;
+    float: right;
     margin-right: 6px;
 }
 
 #turn-right{
-    float: left;
+    float: right;
+    margin-right: 0px;
 }
 #turn-left a,#turn-right a{
     font-size:x-large;
+    color: #1E90FF;
 }
 #turn-left a:hover,#turn-right a:hover{
-    color: black;
+    color: lightskyblue;
 }
 #week{
     height: 50px;

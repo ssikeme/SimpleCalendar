@@ -8,24 +8,57 @@
 </head>
 <body>
     <div id="calendar">
-        <form id="form">
-         <b>年份:</b>
-        <input type="number" id="year-input" size="4" style="width: 50px;height: 16px">
-            <b>月份:</b>
-        <input type="number" id="month-input" min="1" max="12"  style="width: 30px;height: 16px">
-        <input type="button"  id="button" onclick="getVal()" value="确定">
-        </form>
-            <div id="nav">
-            <div id="year"></div>
-            <div id="month"></div>
+        <div id="nav">
+            <div id="year">
+                <div class="select-head">
+                    <span id="year-select-icon">▶</span>
+                    <span id="year-select-cont"></span>
+
+                </div>
+                <ul id="year-option">
+                    <li class="year-option-item"></li>
+                    <li class="year-option-item"></li>
+                    <li class="year-option-item"></li>
+                    <li class="year-option-item"></li>
+                    <li class="year-option-item"></li>
+                    <li class="year-option-item"></li>
+                    <li class="year-option-item"></li>
+                    <li class="year-option-item"></li>
+                </ul>
+            </div>
+
+            <div id="month">
+                <div class="select-head">
+                    <span id="month-select-icon">▶</span>
+                    <span id="month-select-cont">2019</span>
+
+                </div>
+                <ul id="month-option">
+                    <li class="month-option-item">1月</li>
+                    <li class="month-option-item">2月</li>
+                    <li class="month-option-item">3月</li>
+                    <li class="month-option-item">4月</li>
+                    <li class="month-option-item">5月</li>
+                    <li class="month-option-item">6月</li>
+                    <li class="month-option-item">7月</li>
+                    <li class="month-option-item">8月</li>
+                    <li class="month-option-item">9月</li>
+                    <li class="month-option-item">10月</li>
+                    <li class="month-option-item">11月</li>
+                    <li class="month-option-item">12月</li>
+                </ul>
+            </div>
+
+            <input type="button"  id="button" onclick="getVal()" value="确定">
             <div id="turn-to-today">
                <a href="">今</a>
             </div>
-            <div id="turn-left">
-                <a id="prev" href=""><</a>
-            </div>
+
             <div id="turn-right">
                 <a id="next" href="">></a>
+            </div>
+            <div id="turn-left">
+                <a id="prev" href=""><</a>
             </div>
         </div>
 
