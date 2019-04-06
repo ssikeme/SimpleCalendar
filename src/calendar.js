@@ -4,7 +4,7 @@ var cur_m=currentDare.getMonth();
 var cur_d=currentDare.getDate();
 cur_m++;
 
-var tmp_y=cur_y,tmp_m=cur_m,tmp_d=cur_d;
+var tmp_y=cur_y,tmp_m=cur_m;
 
 var leap_month=[31,29,31,30,31,30,31,31,30,31,30,31];//初始化月份天数（闰年，平年），月份名称
 var common_month=[31,28,31,30,31,30,31,31,30,31,30,31];
@@ -32,11 +32,13 @@ function getDaysCount(year,month) {//判断某年某个月的天数
 
 
 function showCalendar(year,month) {
+    var year_con=document.getElementById("year-select-cont");
+    var month_con=document.getElementById("month-select-cont");
+    year_con.innerHTML=year+"年";
+    month_con.innerHTML=month+"月";
     var totalDays=getDaysCount(year,month);
     var firstday=getStartDay(year,month);//第一天星期几
     var str="";
-    var year_s=("<p>"+year+"年"+"</p>");
-    var month_s=("<p>"+month_string[month-1]+"</p>");
     str+=("<tr>" +
         " <th class=\"week weekend\">日</th>" +
         "<th class=\"week\">一</th>" +
@@ -74,15 +76,11 @@ function showCalendar(year,month) {
         }
         str+="</tr>";
     }
-
-
     dateholder.innerHTML=str;
 
 }
 
 window.onload=function () {
-    yearSelectHeadCont.innerHTML=cur_y+"年";
-    monthSelectHeadCont.innerHTML=cur_m+"月";
     for(var i=0,y=cur_y;i<len1;i++){
         yearoptionitem[i].innerHTML=y+"年";
         y++;
@@ -114,6 +112,8 @@ next.onclick=function (e) {
 var turn_to_today=document.getElementById("turn-to-today");
 turn_to_today.onclick=function (e) {
     e.preventDefault();
+    yearSelectHeadCont.innerHTML=cur_y+"年";
+    monthSelectHeadCont.innerHTML=cur_m+"月";
     showCalendar(cur_y,cur_m);
 }
 function  getVal() {
@@ -121,8 +121,8 @@ function  getVal() {
     var month=document.getElementById("month-select-cont").innerHTML;
     year=year.substr(0,year.length-1);
     month=month.substr(0,month.length-1);
+    tmp_y=year,tmp_m=month;
     showCalendar(year,month);
-
 }
 
 var yearSelectHead=document.getElementsByClassName('select-head')[0];
